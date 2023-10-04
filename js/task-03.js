@@ -12,3 +12,24 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryList = document.querySelector('.gallery');
+galleryList.style.listStyle = 'none';
+galleryList.style.display = 'flex';
+galleryList.style.flexDirection = 'column';
+galleryList.style.justifyContent = 'center';
+galleryList.style.alignItems = 'center';
+
+images.forEach(image => {
+  const listItem = document.createElement('li');
+  const imageElement = document.createElement('img');
+  imageElement.src = image.url;
+  imageElement.alt = image.alt;
+
+  imageElement.style.width = '250px';
+  imageElement.style.height = '200px';
+ listItem.style.margin = '10px';
+
+  listItem.appendChild(imageElement);
+  galleryList.appendChild(listItem);
+});
